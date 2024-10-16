@@ -1,5 +1,5 @@
 import random
-students = ['Аполлон', 'Я', 'Александра', 'Дарья', 'Ангелина']
+students = ['Аполлон', 'Ярослав', 'Александра', 'Дарья', 'Ангелина']
 students.sort()
 classes = ['Математика', 'Русский язык', 'Информатика']
 students_marks = {}
@@ -154,7 +154,8 @@ while True:
          1. Добавить нового ученика
          2. Удалить ученика из списка
          3. Редактировать имя ученика
-         4. Выйти в основное меню
+         4. Список учеников
+         5. Выйти в основное меню
                         ''')
         while True:
             command4 = int(input('Введите команду: '))
@@ -187,10 +188,16 @@ while True:
                     students.remove(student1)
                     students.append(student_new)
                     students_marks[student_new] = students_marks.pop(student1)
+                    print(f'Имя {student1} успешно изменено на {student_new}')
                 else:
                     print('Ученика с таким именем нет в списке')
             elif command4 == 4:
-                print('4. Выход в основное меню')
+                    print('4. Список учеников: ')
+                    for student in students:
+                        print(f'{student} ')
+                    print()
+            elif command4 == 5:
+                print('5. Выход в основное меню')
                 break
 
     elif command == 5:
@@ -199,7 +206,8 @@ while True:
          1. Добавить новый предмет
          2. Удалить предмет
          3. Редактировать название предмета
-         4. Выйти в основное меню
+         4. Вывести список предметов
+         5. Выйти в основное меню
                ''')
         while True:
             command5 = int(input('Введите команду: '))
@@ -224,7 +232,7 @@ while True:
                     print('Предмета с таким названием нет')
             elif command5 == 3:
                 print('3. Редактировать название предмета')
-                print(students_marks[student])
+                print(classes)
                 class_ = input('Введите название предмета, который необходимо измениить: ')
                 if class_ in students_marks[student].keys():
                     class_new = input('Введите новое название предмета: ')
@@ -233,11 +241,18 @@ while True:
                     for student in students:
                         students_marks[student][class_new] = students_marks[student][class_]
                         del students_marks[student][class_]
+                    print(f'Название предмета {class_} успешно изменено на {class_new}')
 
                 else:
                     print('Предмета с таким названием нет')
             elif command5 == 4:
-                print('4. Выход в основное меню')
+                    print('4. Изучаемые предметы: ')
+                    for class_ in classes:
+                        print(f'{class_} ')
+                    print()
+
+            elif command5 == 5:
+                print('5. Выход в основное меню')
                 break
 
     elif command == 6:
